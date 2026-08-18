@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Eleva Ensamble | Cocinas Integrales y Closets en Hermosillo, Sonora</title>
+<meta name="description" content="Eleva Ensamble — Cocinas integrales, closets a medida, centros de entretenimiento y muebles de baño en Hermosillo, Sonora. Diseño 3D, fabricación de precisión e instalación profesional.">
+<meta name="keywords" content="cocinas integrales Hermosillo, closets a medida Hermosillo, muebles melamina Hermosillo, carpintería Hermosillo, Eleva Ensamble">
+<link rel="canonical" href="https://elevaensamble.com/">
+<link rel="icon" type="image/jpeg" href="imagenes/logo-eleva.jpg">
+<link rel="apple-touch-icon" href="imagenes/logo-eleva.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --blk:#0A0A08;--dk:#111110;--dk2:#1C1C18;
+  --paper:#F7F5F0;--paper2:#EFECE5;
+  --gold:#C4A35A;--gold2:#E2C98A;
+  --stone:#8A8680;--stone2:#C0BBB4;
+  --wh:#FFFFFF;
+  --ez:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--blk);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif}
+.sf{font-family:'Cormorant Garamond',serif}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--dk)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* ============ LOADER ============ */
+#ldr{
+  position:fixed;inset:0;z-index:9000;background:var(--dk);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  transition:opacity .7s var(--ez),visibility .7s;
+}
+#ldr.out{opacity:0;visibility:hidden;pointer-events:none}
+.ldr-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#fff;letter-spacing:.1em}
+.ldr-title span{color:var(--gold);font-style:italic}
+.ldr-track{width:180px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.ldr-bar{height:100%;width:0;background:var(--gold);border-radius:2px}
+
+/* ============ NAV ============ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between;
+  transition:all .5s var(--ez);
+}
+#nav.light{
+  padding:1rem 3rem;background:rgba(247,245,240,.96);
+  backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(196,163,90,.12);
+}
+.nbrand{display:flex;align-items:center;gap:.7rem}
+.nbrand img{width:42px;height:42px;object-fit:contain;border-radius:4px;flex-shrink:0}
+.nbrand-t{font-family:'Cormorant Garamond',serif;font-size:1.15rem;letter-spacing:.06em;line-height:1.1;color:#fff;transition:color .3s}
+#nav.light .nbrand-t{color:var(--blk)}
+.nbrand-t em{font-style:italic;color:var(--gold)}
+.nbrand-s{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .3s}
+#nav.light .nbrand-s{color:var(--stone)}
+.nlinks{display:flex;align-items:center;gap:2.2rem}
+.nlink{
+  font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:400;
+  color:rgba(255,255,255,.6);position:relative;padding-bottom:3px;
+  transition:color .3s;cursor:pointer;
+}
+.nlink::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ez)}
+.nlink:hover,.nlink.on{color:#fff}
+.nlink:hover::after,.nlink.on::after{width:100%}
+#nav.light .nlink{color:var(--stone)}
+#nav.light .nlink:hover,#nav.light .nlink.on{color:var(--blk)}
+.ncta{
+  font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:500;
+  border:1px solid rgba(255,255,255,.4);color:#fff;
+  padding:.58rem 1.5rem;transition:all .3s var(--ez);
+}
+.ncta:hover{background:var(--gold);border-color:var(--gold);color:var(--dk)}
+#nav.light .ncta{border-color:var(--gold);color:var(--blk)}
+#nav.light .ncta:hover{background:var(--gold);color:var(--dk)}
+#ham{display:none;flex-direction:column;gap:5px;width:26px}
+#ham span{display:block;height:1.5px;background:#fff;transition:all .35s var(--ez);transform-origin:center}
+#nav.light #ham span{background:var(--blk)}
+#ham.op span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+#ham.op span:nth-child(2){opacity:0}
+#ham.op span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mob{
+  position:fixed;inset:0;z-index:799;background:var(--dk);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
+  opacity:0;visibility:hidden;transition:opacity .4s var(--ez),visibility .4s;
+}
+#mob.op{opacity:1;visibility:visible}
+#mob a{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;
+  color:rgba(255,255,255,.75);transition:color .3s;
+}
+#mob a:hover{color:var(--gold)}
+
+/* ============ HERO ============ */
+#hero{height:100svh;min-height:620px;position:relative;overflow:hidden;background:var(--dk)}
+.hslides{position:absolute;inset:0}
+.hsl{
+  position:absolute;inset:0;opacity:0;
+  transition:opacity 1.8s cubic-bezier(.65,0,.35,1);
+}
+.hsl::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,10,8,.88) 0%,rgba(10,10,8,.5) 55%,rgba(10,10,8,.18) 100%)}
+.hsl.on{opacity:1}
+.hsl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hbody{
+  position:relative;z-index:2;height:100%;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:0 3rem;max-width:860px;
+}
+.htag{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:2rem}
+.htag-line{width:2.5rem;height:1px;background:var(--gold)}
+.htag-txt{font-size:.65rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:300}
+.hh1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,6.8rem);font-weight:300;line-height:1.04;
+  color:#fff;letter-spacing:-.01em;
+}
+.hh1 em{font-style:italic;color:var(--gold2)}
+.hsub{
+  margin-top:1.5rem;max-width:420px;
+  font-size:.94rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.45);
+}
+.hbtns{margin-top:2.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn-g{
+  display:inline-flex;align-items:center;gap:.7rem;
+  background:var(--gold);color:var(--dk);
+  padding:.88rem 2.2rem;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  transition:all .35s var(--ez);
+}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,163,90,.35)}
+.btn-gh{
+  display:inline-flex;align-items:center;gap:.7rem;
+  border:1px solid rgba(255,255,255,.32);color:rgba(255,255,255,.85);
+  padding:.88rem 2.2rem;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;font-weight:400;
+  transition:all .35s var(--ez);
+}
+.btn-gh:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px)}
+.hstats{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  display:flex;border-top:1px solid rgba(255,255,255,.07);
+}
+.hstat{flex:1;padding:1.6rem 2rem;border-right:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:1rem}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1}
+.hstat-l{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);line-height:1.5}
+.hdots{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:.5rem}
+.hdot{width:2px;height:16px;background:rgba(255,255,255,.2);border:none;cursor:pointer;transition:all .4s var(--ez)}
+.hdot.on{height:32px;background:var(--gold)}
+
+/* ============ SECTIONS ============ */
+.sw{padding:7rem 3rem}
+.cn{max-width:1300px;margin:0 auto}
+.ew{display:inline-flex;align-items:center;gap:.9rem;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.ew::before{content:'';width:2rem;height:1px;background:var(--gold);flex-shrink:0}
+.sh2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:300;line-height:1.08;color:var(--blk)}
+.sh2 em{font-style:italic;color:var(--gold)}
+.slead{font-size:.93rem;font-weight:300;line-height:1.9;color:var(--stone);max-width:500px}
+.gdiv{width:3rem;height:1px;background:var(--gold);margin:1.4rem 0}
+
+/* reveal */
+[data-r]{opacity:0;transform:translateY(40px);transition:opacity .85s var(--ez),transform .85s var(--ez)}
+[data-r].rv{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.1s}
+[data-r][data-d="2"]{transition-delay:.2s}
+[data-r][data-d="3"]{transition-delay:.3s}
+[data-r][data-d="4"]{transition-delay:.4s}
+[data-r][data-d="5"]{transition-delay:.5s}
+[data-rl]{opacity:0;transform:translateX(-36px);transition:opacity .85s var(--ez),transform .85s var(--ez)}
+[data-rl].rv{opacity:1;transform:none}
+[data-rr]{opacity:0;transform:translateX(36px);transition:opacity .85s var(--ez),transform .85s var(--ez)}
+[data-rr].rv{opacity:1;transform:none}
+
+/* ============ ABOUT ============ */
+#nosotros{background:var(--paper)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.aphotos{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 200px;gap:10px}
+.aphotos::before{content:'';position:absolute;top:-1rem;left:-1rem;width:50%;height:50%;border:1px solid rgba(196,163,90,.2);pointer-events:none;z-index:0}
+.apm{grid-column:1/3;grid-row:1/2;overflow:hidden;position:relative;z-index:1}
+.aps1{grid-column:1/2;grid-row:2/3;overflow:hidden}
+.aps2{grid-column:2/3;grid-row:2/3;background:var(--paper2);display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.aphotos img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ez)}
+.apm:hover img,.aps1:hover img{transform:scale(1.04)}
+.aps2 img{object-fit:contain;width:100%;height:100%}
+.anum-g{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,0,0,.08);margin-top:2.5rem}
+.anum{padding:1.5rem 1.75rem;background:var(--paper)}
+.anum-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1}
+.anum-l{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:.4rem}
+
+/* ============ SERVICIOS CARDS ============ */
+#servicios{background:var(--dk);padding:7rem 3rem}
+.sg-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem;flex-wrap:wrap}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.sc{background:var(--dk);cursor:pointer;position:relative;overflow:hidden;transition:background .45s}
+.sc:hover{background:#161610}
+.sc-img{width:100%;height:220px;overflow:hidden;position:relative}
+.sc-img img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:brightness(.65) saturate(.8);
+  transition:transform .8s var(--ez),filter .6s;
+}
+.sc:hover .sc-img img{transform:scale(1.06);filter:brightness(.82) saturate(1)}
+.sc-body{padding:1.75rem 1.75rem 2.25rem}
+.sc-num{font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.28em;color:var(--gold);margin-bottom:.8rem}
+.sc-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:.7rem}
+.sc-desc{font-size:.79rem;line-height:1.85;color:rgba(255,255,255,.37);font-weight:300}
+.sc-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);transition:gap .35s var(--ez)}
+.sc:hover .sc-cta{gap:.9rem}
+.sc-cta i{font-size:.6rem;transition:transform .35s var(--ez)}
+.sc:hover .sc-cta i{transform:translateX(5px)}
+
+/* ============ SERVICE DETAILS ============ */
+.det{padding:7rem 3rem;overflow:hidden}
+.det.alt{background:var(--paper2)}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:center}
+.dg.fl{direction:rtl}.dg.fl>*{direction:ltr}
+.dgal{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.dgal-main{grid-column:1/3;overflow:hidden;aspect-ratio:16/8}
+.dgal-sub{overflow:hidden;aspect-ratio:4/3}
+.dgal img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ez)}
+.dgal-main:hover img,.dgal-sub:hover img{transform:scale(1.04)}
+.dlist{list-style:none;margin:1.75rem 0}
+.dlist li{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.83rem;line-height:1.65;color:var(--stone);font-weight:300}
+.dlist li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:.48rem}
+.btn-dk{
+  display:inline-flex;align-items:center;gap:.7rem;
+  background:var(--blk);color:#fff;
+  padding:.88rem 2.2rem;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  position:relative;overflow:hidden;transition:transform .35s var(--ez);
+}
+.btn-dk::after{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .38s var(--ez);z-index:0}
+.btn-dk span,.btn-dk i{position:relative;z-index:1}
+.btn-dk:hover::after{transform:none}.btn-dk:hover{transform:translateY(-2px)}
+
+/* ============ PORTAFOLIO ============ */
+#portafolio{background:var(--paper2)}
+.pff{display:flex;gap:.4rem;flex-wrap:wrap;margin:2.2rem 0 3rem}
+.pfb{padding:.5rem 1.4rem;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(0,0,0,.13);color:var(--stone);transition:all .3s;cursor:pointer}
+.pfb.on,.pfb:hover{background:var(--blk);color:#fff;border-color:var(--blk)}
+.pgrid{columns:3;column-gap:.85rem}
+.pi{break-inside:avoid;margin-bottom:.85rem;position:relative;overflow:hidden;cursor:pointer;line-height:0}
+.pi img{
+  width:100%;display:block;
+  filter:brightness(.88);
+  transition:transform .8s var(--ez),filter .5s;
+}
+.pi:hover img{transform:scale(1.05);filter:brightness(1)}
+.povl{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,8,.88) 0%,transparent 55%);
+  opacity:0;transition:opacity .4s;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;
+}
+.pi:hover .povl{opacity:1}
+.pi-t{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#fff;font-weight:400}
+.pi-c{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.2rem}
+.pi-exp{
+  position:absolute;top:.75rem;right:.75rem;
+  width:32px;height:32px;border:1px solid rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.7rem;
+  opacity:0;transform:scale(.8);transition:all .4s;
+}
+.pi:hover .pi-exp{opacity:1;transform:scale(1)}
+.pi.hide{opacity:0;pointer-events:none;transform:scale(.96);transition:all .4s}
+
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,10,8,.96);align-items:center;justify-content:center;padding:2rem}
+#lb.op{display:flex}
+#lb-img{max-width:90vw;max-height:85vh;width:auto;height:auto;object-fit:contain}
+#lb-x{position:absolute;top:1.5rem;right:2rem;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;transition:color .3s,transform .3s}
+#lb-x:hover{color:var(--gold);transform:rotate(90deg)}
+#lb-p,#lb-n{position:absolute;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.35);font-size:1.1rem;padding:1.5rem;cursor:pointer;transition:color .3s}
+#lb-p:hover,#lb-n:hover{color:var(--gold)}
+#lb-p{left:1rem}#lb-n{right:1rem}
+#lb-cap{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);white-space:nowrap}
+
+/* ============ PROCESO ============ */
+#proceso{background:var(--dk)}
+.procg{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.06);margin-top:5rem}
+.pstep{padding:3rem 2rem;border-right:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;transition:background .4s}
+.pstep:last-child{border-right:none}
+.pstep::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ez)}
+.pstep:hover::before{transform:scaleX(1)}.pstep:hover{background:rgba(255,255,255,.02)}
+.pstep-bg{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(255,255,255,.04);line-height:1;position:absolute;top:1rem;right:1.25rem;pointer-events:none}
+.pstep-ico{width:44px;height:44px;border:1px solid rgba(196,163,90,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.95rem;margin-bottom:1.75rem}
+.pstep-t{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:.85rem}
+.pstep-d{font-size:.79rem;line-height:1.9;color:rgba(255,255,255,.32);font-weight:300}
+.wstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:5rem}
+.wi{aspect-ratio:16/9;overflow:hidden;position:relative}
+.wi img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.6);transition:filter .5s,transform .8s var(--ez)}
+.wi:hover img{filter:brightness(.75) saturate(1);transform:scale(1.04)}
+.wi-l{position:absolute;bottom:0;left:0;right:0;padding:.85rem 1rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ============ CONTACTO ============ */
+#contacto{background:var(--dk)}
+.cg{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:start}
+.ch2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.2vw,3rem);font-weight:300;line-height:1.1;color:#fff;margin-top:1rem}
+.ch2 em{font-style:italic;color:var(--gold2)}
+.ci{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.6rem}
+.cico{width:40px;height:40px;border:1px solid rgba(196,163,90,.22);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.88rem;flex-shrink:0}
+.clbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.25rem}
+.cval{font-size:.9rem;color:rgba(255,255,255,.7);font-weight:300}
+.mapbtn{display:inline-flex;align-items:center;gap:.45rem;margin-top:.55rem;padding:.55rem .8rem;border:1px solid rgba(196,163,90,.45);color:var(--gold2);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;transition:all .3s var(--ez)}
+.mapbtn:hover{background:var(--gold);border-color:var(--gold);color:var(--dk);transform:translateY(-2px)}
+.csoc{display:flex;gap:.6rem;margin-top:2.5rem}
+.csb{width:38px;height:38px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);font-size:.82rem;transition:all .35s var(--ez)}
+.csb:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.cfw{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:3rem}
+.cft{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:#fff;margin-bottom:2rem}
+.cft em{font-style:italic;color:var(--gold)}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.cfg{margin-bottom:1rem}
+.clabel{display:block;font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.45rem}
+.cinp{width:100%;background:rgba(255,255,255,.04);border:none;border-bottom:1px solid rgba(196,163,90,.2);color:#fff;padding:.75rem .85rem;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:300;outline:none;transition:border-color .3s,background .3s}
+.cinp:focus{border-color:rgba(196,163,90,.6);background:rgba(255,255,255,.06)}
+.cinp::placeholder{color:rgba(255,255,255,.18)}
+textarea.cinp{resize:vertical;min-height:88px;border:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(196,163,90,.2)}
+select.cinp{appearance:none;cursor:pointer}
+.csend{width:100%;padding:1rem;background:var(--gold);color:var(--dk);font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:all .35s var(--ez)}
+.csend:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,163,90,.32)}
+.calt{display:block;text-align:center;margin-top:1.1rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:underline;text-underline-offset:3px;cursor:pointer;transition:opacity .3s}
+.calt:hover{opacity:.7}
+
+/* ============ FOOTER ============ */
+footer{background:#080806;padding:2.5rem 3rem;border-top:1px solid rgba(196,163,90,.1)}
+.fi{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.25rem}
+.flogo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.55);letter-spacing:.06em}
+.flogo em{font-style:italic;color:var(--gold)}
+.fcopy{font-size:.67rem;color:rgba(255,255,255,.18)}
+.flinks{display:flex;gap:1.75rem}
+.flink{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.22);transition:color .3s;cursor:pointer}
+.flink:hover{color:var(--gold)}
+
+/* ============ WA FLOAT ============ */
+#waf{position:fixed;bottom:2rem;right:2rem;z-index:700;display:flex;align-items:center;gap:.7rem}
+#wab{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.38);transition:transform .35s;animation:wap 2.5s ease-in-out infinite;text-decoration:none}
+#wab:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.38)}50%{box-shadow:0 4px 32px rgba(37,211,102,.6),0 0 0 8px rgba(37,211,102,.07)}}
+#wal{background:var(--dk);color:#fff;font-size:.7rem;padding:.35rem .8rem;letter-spacing:.06em;white-space:nowrap;opacity:0;transform:translateX(6px);transition:all .35s var(--ez);pointer-events:none}
+#waf:hover #wal{opacity:1;transform:translateX(0)}
+
+/* ============ COTIZADOR MODAL ============ */
+#cotm{
+  display:none;position:fixed;inset:0;z-index:1500;
+  background:rgba(10,10,8,.97);align-items:flex-start;justify-content:center;
+  padding:2rem 1rem;overflow-y:auto;
+}
+#cotm.op{display:flex}
+.cbox{
+  width:100%;max-width:700px;background:#fff;
+  margin:auto;position:relative;
+}
+.chead{
+  background:var(--dk);padding:1.6rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:10;
+}
+.chead-brand{display:flex;align-items:center;gap:.65rem}
+.chead-brand img{width:34px;height:34px;object-fit:contain;border-radius:3px}
+.chead-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:#fff}
+.chead-x{color:rgba(255,255,255,.45);font-size:1.2rem;cursor:pointer;transition:color .3s,transform .3s}
+.chead-x:hover{color:var(--gold);transform:rotate(90deg)}
+/* Progress */
+.cprog{height:3px;background:rgba(0,0,0,.08);position:relative}
+.cprog-fill{height:100%;background:var(--gold);transition:width .5s var(--ez);width:0}
+/* Steps dots */
+.cpills{display:flex;padding:1.4rem 2rem .3rem;gap:.4rem;overflow-x:auto}
+.cpills::-webkit-scrollbar{display:none}
+.cpill{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  border:1.5px solid rgba(0,0,0,.13);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.67rem;font-weight:500;color:var(--stone2);
+  transition:all .3s;
+}
+.cpill.done{background:var(--gold);border-color:var(--gold);color:var(--dk)}
+.cpill.act{background:var(--dk);border-color:var(--dk);color:#fff}
+.cstep-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone2);padding:.3rem 2rem 1rem}
+/* Body */
+.cbody{padding:1.75rem 2rem}
+.cstep{display:none}.cstep.act{display:block}
+.cstep-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;color:var(--blk);margin-bottom:.35rem}
+.cstep-sub{font-size:.82rem;color:var(--stone);font-weight:300;margin-bottom:1.6rem}
+/* Option cards */
+.optg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.55rem;margin-bottom:1rem}
+.oc{
+  border:1px solid rgba(0,0,0,.12);padding:.85rem .7rem;
+  cursor:pointer;text-align:center;transition:all .28s var(--ez);position:relative;
+}
+.oc:hover{border-color:var(--gold);background:rgba(196,163,90,.04)}
+.oc.sel{border-color:var(--gold);background:rgba(196,163,90,.08)}
+.oc.sel::after{content:'✓';position:absolute;top:.4rem;right:.55rem;font-size:.65rem;color:var(--gold)}
+.oc-ico{font-size:1.4rem;margin-bottom:.4rem}
+.oc-lbl{font-size:.77rem;font-weight:400;color:var(--blk);line-height:1.3}
+.oc-sub{font-size:.66rem;color:var(--stone2);margin-top:.15rem}
+/* Sub panels */
+.subp{display:none;border:1px solid rgba(196,163,90,.22);background:rgba(196,163,90,.04);padding:1.1rem;margin:.6rem 0}
+.subp.show{display:block}
+.subp-t{font-size:.64rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
+.subg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.4rem}
+.so{border:1px solid rgba(0,0,0,.1);padding:.58rem .7rem;cursor:pointer;font-size:.77rem;color:var(--stone);display:flex;align-items:center;gap:.45rem;transition:all .22s}
+.so:hover,.so.sel{border-color:var(--gold);background:rgba(196,163,90,.06);color:var(--blk)}
+.so i{font-size:.63rem;color:var(--gold);opacity:0;transition:opacity .2s}
+.so.sel i{opacity:1}
+/* Checkboxes */
+.chk-t{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);margin:1rem 0 .55rem}
+.chkg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.4rem}
+.chi{display:flex;align-items:center;gap:.55rem;padding:.48rem .6rem;border:1px solid rgba(0,0,0,.09);cursor:pointer;transition:border-color .22s}
+.chi:hover{border-color:var(--gold)}
+.chi input{accent-color:var(--gold);width:14px;height:14px;flex-shrink:0;cursor:pointer}
+.chi label{font-size:.78rem;color:var(--stone);cursor:pointer;line-height:1.3}
+/* Color palette */
+.colg{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-bottom:1rem}
+.colc{border:1px solid rgba(0,0,0,.1);padding:.6rem .45rem;cursor:pointer;text-align:center;transition:all .28s var(--ez)}
+.colc:hover,.colc.sel{border-color:var(--gold);background:rgba(196,163,90,.06)}
+.csw{width:26px;height:26px;border-radius:50%;margin:0 auto .3rem;border:1px solid rgba(0,0,0,.1)}
+.cswl{font-size:.65rem;color:var(--stone2);line-height:1.3}
+/* Range slider */
+.rval{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--gold);text-align:center;margin:.4rem 0 .2rem}
+.rinput{width:100%;appearance:none;-webkit-appearance:none;height:3px;background:rgba(0,0,0,.1);border-radius:2px;margin:1.2rem 0;outline:none}
+.rinput::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.rinput::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff}
+.rlabels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--stone2)}
+/* Source */
+.srcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.4rem}
+.srco{border:1px solid rgba(0,0,0,.1);padding:.68rem .6rem;cursor:pointer;text-align:center;font-size:.77rem;color:var(--stone);transition:all .25s}
+.srco:hover,.srco.sel{border-color:var(--gold);background:rgba(196,163,90,.07);color:var(--blk)}
+/* Form fields in cotizador */
+.cfg2{margin-bottom:.95rem}
+.clbl2{display:block;font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin-bottom:.42rem}
+.cinp2{width:100%;border:none;border-bottom:1px solid rgba(0,0,0,.14);padding:.62rem 0;font-family:'Inter',sans-serif;font-size:.88rem;color:var(--blk);outline:none;background:transparent;transition:border-color .3s}
+.cinp2:focus{border-color:var(--gold)}
+.cinp2::placeholder{color:var(--stone2)}
+textarea.cinp2{resize:vertical;min-height:65px;border:1px solid rgba(0,0,0,.12);padding:.62rem .7rem;border-bottom:1px solid rgba(196,163,90,.3)}
+.crow2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+/* Nav buttons */
+.cnav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,0,0,.07)}
+.cprev{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);display:flex;align-items:center;gap:.45rem;transition:color .3s}
+.cprev:hover{color:var(--blk)}
+.cnext{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--dk);padding:.78rem 2rem;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:600;transition:all .35s var(--ez)}
+.cnext:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,163,90,.35)}
+.cnext.send{background:var(--dk);color:#fff}
+.cnext.send:hover{background:var(--gold);color:var(--dk)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1100px){
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .procg{grid-template-columns:repeat(2,1fr)}
+  .cg{grid-template-columns:1fr;gap:3rem}
+  .pgrid{columns:2}
+}
+@media(max-width:860px){
+  .sw{padding:5rem 1.75rem}
+  #servicios,.det,#proceso,#contacto{padding-left:1.75rem;padding-right:1.75rem}
+  #nav{padding:1.4rem 1.75rem}#nav.light{padding:.85rem 1.75rem}
+  .nlinks{display:none}#ham{display:flex}
+  .hbody{padding:0 1.75rem}
+  .hstats{display:none}.hdots{display:none}
+  .ag{grid-template-columns:1fr;gap:3rem}
+  .dg{grid-template-columns:1fr;gap:3rem}.dg.fl{direction:ltr}
+  .wstrip{grid-template-columns:1fr}
+  .colg{grid-template-columns:repeat(3,1fr)}
+  .chkg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .sw{padding:4rem 1.25rem}
+  #servicios{padding:4rem 1.25rem}
+  .sg{grid-template-columns:1fr}
+  .procg{grid-template-columns:1fr}
+  .pgrid{columns:1}
+  .hbtns{flex-direction:column}
+  .hbtns>*{text-align:center;justify-content:center}
+  .crow{grid-template-columns:1fr}
+  .crow2{grid-template-columns:1fr}
+  .cbody{padding:1.4rem 1.25rem}
+  .chead{padding:1.2rem 1.4rem}
+  .cpills{padding:1.2rem 1.4rem .3rem}
+  .colg{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="ldr">
+  <div class="ldr-title sf">Eleva <span>Ensamble</span></div>
+  <div class="ldr-track"><div class="ldr-bar" id="ldr-bar"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nbrand" onclick="return go('hero')">
+    <img src="imagenes/logo-eleva.jpg" alt="Eleva Ensamble">
+    <div>
+      <div class="nbrand-t sf">Eleva <em>Ensamble</em></div>
+      <div class="nbrand-s">Carpintería · Hermosillo</div>
+    </div>
+  </a>
+  <div class="nlinks" id="dlinks">
+    <span class="nlink" onclick="go('nosotros')">Nosotros</span>
+    <span class="nlink" onclick="go('servicios')">Servicios</span>
+    <span class="nlink" onclick="go('portafolio')">Proyectos</span>
+    <span class="nlink" onclick="go('proceso')">Proceso</span>
+    <span class="nlink" onclick="go('contacto')">Contacto</span>
+    <button class="ncta" onclick="openCot()">Cotizar</button>
+  </div>
+  <button id="ham" onclick="toggleMob()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob">
+  <a href="#" onclick="go('nosotros');closeMob()">Nosotros</a>
+  <a href="#" onclick="go('servicios');closeMob()">Servicios</a>
+  <a href="#" onclick="go('portafolio');closeMob()">Proyectos</a>
+  <a href="#" onclick="go('proceso');closeMob()">Proceso</a>
+  <a href="#" onclick="go('contacto');closeMob()">Contacto</a>
+  <a href="#" onclick="openCot();closeMob()" style="color:var(--gold)">Cotizar proyecto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" style="padding:0">
+  <div id="hero" style="height:100svh;min-height:620px;position:relative;overflow:hidden;background:var(--dk)">
+    <div class="hslides">
+      <div class="hsl on"><img src="imagenes/logo-eleva.jpg" alt="Cocina integral Eleva Ensamble Hermosillo"></div>
+      <div class="hsl"><img src="imagenes/placeholder.svg" alt="Cocina con granito Hermosillo"></div>
+      <div class="hsl"><img src="imagenes/placeholder.svg" alt="Cocina hornos integrados"></div>
+      <div class="hsl"><img src="imagenes/placeholder.svg" alt="Cocina con isla moderna"></div>
+    </div>
+    <div class="hbody">
+      <div class="htag"><div class="htag-line"></div><span class="htag-txt">Hermosillo, Sonora · Desde 2016</span></div>
+      <h1 class="hh1 sf">Transformamos<br><em>espacios.</em><br>Elevamos tu hogar.</h1>
+      <p class="hsub">Cocinas integrales, closets y muebles a medida fabricados con precisión artesanal y diseños que destacan.</p>
+      <div class="hbtns">
+        <button class="btn-gh" onclick="go('portafolio')">Ver proyectos &nbsp;<i class="fas fa-arrow-right" style="font-size:.6rem"></i></button>
+        <button class="btn-g" onclick="openCot()"><i class="fab fa-whatsapp"></i> Cotizar mi proyecto</button>
+      </div>
+    </div>
+    <div class="hdots">
+      <button class="hdot on" onclick="gsl(0)"></button>
+      <button class="hdot" onclick="gsl(1)"></button>
+      <button class="hdot" onclick="gsl(2)"></button>
+      <button class="hdot" onclick="gsl(3)"></button>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><div class="hstat-n sf">200+</div><div class="hstat-l">Proyectos realizados</div></div>
+      <div class="hstat"><div class="hstat-n sf">10+</div><div class="hstat-l">Años de experiencia</div></div>
+      <div class="hstat"><div class="hstat-n sf">100%</div><div class="hstat-l">Calidad en cada proyecto</div></div>
+      <div class="hstat"><div class="hstat-n sf">4</div><div class="hstat-l">Etapas controladas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="sw">
+<div class="cn">
+  <div class="ag">
+    <div data-rl>
+      <div class="aphotos">
+        <div class="apm"><img src="imagenes/logo-eleva.jpg" alt="Cocina integral Eleva Ensamble"></div>
+        <div class="aps1"><img src="imagenes/logo-eleva.jpg" alt="Taller Eleva Ensamble"></div>
+        <div class="aps2"><img src="imagenes/logo-eleva.jpg" alt="Logo Eleva Ensamble"></div>
+      </div>
+    </div>
+    <div>
+      <div class="ew" data-r>Quiénes somos</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Más de una década<br>creando <em>espacios únicos</em></h2>
+      <div class="gdiv" data-r data-d="2"></div>
+      <p class="slead" data-r data-d="2">Un equipo de trabajo formado desde el 2016 con un propósito claro: transformar cada hogar en un reflejo fiel de quien lo habita. Combinamos tecnología de precisión con el oficio artesanal aprendido durante años de práctica en Hermosillo, Sonora.</p>
+      <p class="slead" style="margin-top:1rem" data-r data-d="3">Trabajamos con melamina de alta densidad, herrajes de alta calidad y acabados certificados que garantizan muebles que resisten el paso del tiempo.</p>
+      <div class="anum-g" data-r data-d="4">
+        <div class="anum"><div class="anum-n sf">200+</div><div class="anum-l">Proyectos realizados</div></div>
+        <div class="anum"><div class="anum-n sf">10+</div><div class="anum-l">Años de experiencia</div></div>
+      </div>
+      <button class="btn-dk" style="margin-top:2rem" onclick="openCot()" data-r data-d="5">
+        <span>Inicia tu proyecto</span><i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICIOS OVERVIEW -->
+<section id="servicios" style="background:var(--dk);padding:7rem 3rem">
+<div class="cn">
+  <div class="sg-hdr">
+    <div>
+      <div class="ew" style="color:rgba(196,163,90,.8)" data-r>Lo que fabricamos</div>
+      <h2 class="sh2 sf" style="color:#fff;margin-top:1rem" data-r data-d="1">Nuestros <em>servicios</em></h2>
+    </div>
+    <p class="slead" style="color:rgba(255,255,255,.3);max-width:300px" data-r data-d="2">Cada proyecto es diseñado, fabricado e instalado a medida.</p>
+  </div>
+  <div class="sg">
+    <div class="sc" onclick="go('det-c')" data-r>
+      <div class="sc-img"><img src="imagenes/placeholder.svg" alt="Cocinas integrales Hermosillo"></div>
+      <div class="sc-body">
+        <div class="sc-num sf">— 01</div>
+        <h3 class="sc-title sf">Cocinas Integrales</h3>
+        <p class="sc-desc">Gabinetes, islas y cubiertas de primera. Diseño funcional y elegante a tu medida.</p>
+        <div class="sc-cta">Ver más <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="sc" onclick="go('det-cl')" data-r data-d="1">
+      <div class="sc-img"><img src="imagenes/placeholder.svg" alt="Closets a medida Hermosillo"></div>
+      <div class="sc-body">
+        <div class="sc-num sf">— 02</div>
+        <h3 class="sc-title sf">Closets a Medida</h3>
+        <p class="sc-desc">Walk-in closets y vestidores con LED y cajones de cierre suave de alta calidad.</p>
+        <div class="sc-cta">Ver más <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="sc" onclick="go('det-e')" data-r data-d="2">
+      <div class="sc-img"><img src="imagenes/placeholder.svg" alt="Centros de entretenimiento Hermosillo"></div>
+      <div class="sc-body">
+        <div class="sc-num sf">— 03</div>
+        <h3 class="sc-title sf">Centros de Entretenimiento</h3>
+        <p class="sc-desc">Muros de TV, chimeneas y librerías con iluminación LED integrada.</p>
+        <div class="sc-cta">Ver más <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="sc" onclick="go('det-b')" data-r data-d="3">
+      <div class="sc-img"><img src="imagenes/placeholder.svg" alt="Muebles de baño Hermosillo"></div>
+      <div class="sc-body">
+        <div class="sc-num sf">— 04</div>
+        <h3 class="sc-title sf">Muebles de Baño</h3>
+        <p class="sc-desc">Vanities y gabinetes resistentes a la humedad con diseño sofisticado.</p>
+        <div class="sc-cta">Ver más <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DETAIL COCINAS -->
+<div id="det-c" class="det">
+<div class="cn">
+  <div class="dg">
+    <div data-rl>
+      <div class="dgal">
+        <div class="dgal-main"><img src="imagenes/placeholder.svg" alt="Cocina integral madera nogal Hermosillo"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Cocina con granito"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Cocina hornos integrados"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.75rem">
+        <div style="overflow:hidden;aspect-ratio:16/8"><img src="imagenes/placeholder.svg" alt="Cocina premium" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="overflow:hidden;aspect-ratio:16/8"><img src="imagenes/placeholder.svg" alt="Cocina isla" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+    <div>
+      <div class="ew" data-r>Servicio 01</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Cocinas <em>Integrales</em></h2>
+      <div class="gdiv" data-r data-d="2"></div>
+      <p class="slead" data-r data-d="2">Diseñamos cocinas que combinan eficiencia, belleza y durabilidad. Desde el diseño 3D hasta la instalación final, cada detalle optimiza tu espacio en Hermosillo.</p>
+      <ul class="dlist" data-r data-d="3">
+        <li>Gabinetes superiores e inferiores a medida exacta</li>
+        <li>Isla central y barras de desayuno personalizadas</li>
+        <li>Cubierta de cuarzo, granito natural o formaica</li>
+        <li>Herrajes de alta calidad con cierre suave</li>
+        <li>Acabados en melamina, PVC, laca o texturizados</li>
+        <li>Diseño 3D — apruebas antes de fabricar</li>
+        <li>Campana de extracción integrada al diseño</li>
+      </ul>
+      <button class="btn-dk" onclick="openCot('Cocina Integral')" data-r data-d="4">
+        <span>Cotizar cocina</span><i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DETAIL CLOSETS -->
+<div id="det-cl" class="det alt">
+<div class="cn">
+  <div class="dg fl">
+    <div>
+      <div class="ew" data-r>Servicio 02</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Closets <em>a Medida</em></h2>
+      <div class="gdiv" data-r data-d="2"></div>
+      <p class="slead" data-r data-d="2">Walk-in closets y vestidores que maximizan el almacenamiento y transforman tu habitación en un espacio de experiencia personal.</p>
+      <ul class="dlist" data-r data-d="3">
+        <li>Walk-in closet y vestidores completos</li>
+        <li>Sistemas de cajones con cierre suave</li>
+        <li>Iluminación LED integrada en cajones y módulos</li>
+        <li>Puertas corredizas, abatibles o espejo</li>
+        <li>Organizadores para zapatos y accesorios</li>
+        <li>Acabados en melamina texturizada, mate o brillante</li>
+        <li>Isleta central con gavetas para walk-in closets</li>
+      </ul>
+      <button class="btn-dk" onclick="openCot('Closet')" data-r data-d="4">
+        <span>Cotizar closet</span><i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+    <div data-rr>
+      <div class="dgal">
+        <div class="dgal-main"><img src="imagenes/placeholder.svg" alt="Walk-in closet blanco herrajes dorados"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Closet walk-in gris"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Closet cajones cierre suave"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DETAIL ENTRETENIMIENTO -->
+<div id="det-e" class="det">
+<div class="cn">
+  <div class="dg">
+    <div data-rl>
+      <div class="dgal">
+        <div class="dgal-main"><img src="imagenes/placeholder.svg" alt="Muro TV chimenea slat wall"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Centro entretenimiento LED"></div>
+        <div class="dgal-sub"><img src="imagenes/placeholder.svg" alt="Sala moderna"></div>
+      </div>
+    </div>
+    <div>
+      <div class="ew" data-r>Servicio 03</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Centros de <em>Entretenimiento</em></h2>
+      <div class="gdiv" data-r data-d="2"></div>
+      <p class="slead" data-r data-d="2">Muros de TV que se convierten en el corazón visual de tu sala. Chimeneas, listones de madera y LED ambiental en un diseño que impacta.</p>
+      <ul class="dlist" data-r data-d="3">
+        <li>Muros de TV empotrados de pared a pared</li>
+        <li>Integración de chimenea eléctrica decorativa</li>
+        <li>Listones de madera (slat wall) con luz posterior</li>
+        <li>Librerías y estantería decorativa a medida</li>
+        <li>Cableado 100% oculto integrado al diseño</li>
+        <li>Nichos con iluminación ambiental LED</li>
+      </ul>
+      <button class="btn-dk" onclick="openCot('Centro de Entretenimiento')" data-r data-d="4">
+        <span>Cotizar muro TV</span><i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DETAIL BAÑO -->
+<div id="det-b" class="det alt">
+<div class="cn">
+  <div class="dg fl">
+    <div>
+      <div class="ew" data-r>Servicio 04</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Muebles <em>de Baño</em></h2>
+      <div class="gdiv" data-r data-d="2"></div>
+      <p class="slead" data-r data-d="2">Vanities, gabinetes y repisas fabricados con materiales resistentes a la humedad. Diseño que une funcionalidad y sofisticación.</p>
+      <ul class="dlist" data-r data-d="3">
+        <li>Vanities con lavabo integrado o sobreencimera</li>
+        <li>Gabinetes bajo y sobre cubierta</li>
+        <li>Melamina RH resistente a humedad y vapor</li>
+        <li>Espejos con iluminación LED perimetral</li>
+        <li>Repisas y accesorios a juego</li>
+        <li>Acabados mate, texturizados o de alto brillo</li>
+      </ul>
+      <button class="btn-dk" onclick="openCot('Mueble de Baño')" data-r data-d="4">
+        <span>Cotizar mueble de baño</span><i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+    <div data-rr>
+      <div style="display:grid;gap:.75rem">
+        <div style="overflow:hidden;aspect-ratio:16/9"><img src="imagenes/placeholder.svg" alt="Taller fabricación" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="overflow:hidden;aspect-ratio:16/9"><img src="imagenes/placeholder.svg" alt="Proceso fabricación" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- PORTAFOLIO -->
+<section id="portafolio" class="sw" style="background:var(--paper2)">
+<div class="cn">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
+    <div>
+      <div class="ew" data-r>Nuestro trabajo</div>
+      <h2 class="sh2 sf" style="margin-top:1rem" data-r data-d="1">Proyectos <em>recientes</em></h2>
+    </div>
+    <p class="slead" style="max-width:280px" data-r data-d="2">Fotos reales de proyectos en Hermosillo. Clic para ampliar.</p>
+  </div>
+  <div class="pff" data-r>
+    <button class="pfb on" data-f="all">Todos</button>
+    <button class="pfb" data-f="cocina">Cocinas</button>
+    <button class="pfb" data-f="closet">Closets</button>
+    <button class="pfb" data-f="entret">Entretenimiento</button>
+    <button class="pfb" data-f="taller">Fabricación</button>
+  </div>
+  <div class="pgrid" id="pgrid">
+    <div class="pi" data-cat="cocina" data-src="imagenes/placeholder.svg" data-title="Cocina Nogal · Proyecto Lomas"><img src="imagenes/placeholder.svg" alt="Cocina integral nogal Hermosillo"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Cocina Nogal · Lomas</div><div class="pi-c">Cocinas Integrales</div></div></div>
+    <div class="pi" data-cat="cocina" data-src="imagenes/placeholder.svg" data-title="Cocina Granito · Proyecto Pitic"><img src="imagenes/placeholder.svg" alt="Cocina con granito Hermosillo"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Cocina Granito · Pitic</div><div class="pi-c">Cocinas Integrales</div></div></div>
+    <div class="pi" data-cat="cocina" data-src="imagenes/placeholder.svg" data-title="Cocina Hornos · Bugambilias"><img src="imagenes/placeholder.svg" alt="Cocina hornos"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Cocina Hornos · Bugambilias</div><div class="pi-c">Cocinas Integrales</div></div></div>
+    <div class="pi" data-cat="cocina" data-src="imagenes/placeholder.svg" data-title="Cocina Premium · Villa Satélite"><img src="imagenes/placeholder.svg" alt="Cocina premium"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Cocina Premium · Satélite</div><div class="pi-c">Cocinas Integrales</div></div></div>
+    <div class="pi" data-cat="cocina" data-src="imagenes/placeholder.svg" data-title="Cocina con Isla · Moderna"><img src="imagenes/placeholder.svg" alt="Cocina isla"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Cocina con Isla</div><div class="pi-c">Cocinas Integrales</div></div></div>
+    <div class="pi" data-cat="closet" data-src="imagenes/placeholder.svg" data-title="Walk-in Closet Blanco · Jardines"><img src="imagenes/placeholder.svg" alt="Walk-in closet"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Walk-in Closet · Jardines</div><div class="pi-c">Closets a Medida</div></div></div>
+    <div class="pi" data-cat="closet" data-src="imagenes/placeholder.svg" data-title="Walk-in Closet Gris · Miramar"><img src="imagenes/placeholder.svg" alt="Closet gris"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Walk-in Gris · Miramar</div><div class="pi-c">Closets a Medida</div></div></div>
+    <div class="pi" data-cat="closet" data-src="imagenes/placeholder.svg" data-title="Closet Cajones · Norte"><img src="imagenes/placeholder.svg" alt="Closet cajones"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Closet Cajones · Norte</div><div class="pi-c">Closets a Medida</div></div></div>
+    <div class="pi" data-cat="entret" data-src="imagenes/placeholder.svg" data-title="Muro TV + Chimenea · Residencial"><img src="imagenes/placeholder.svg" alt="Centro entretenimiento chimenea"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Muro TV + Chimenea</div><div class="pi-c">Centros de Entretenimiento</div></div></div>
+    <div class="pi" data-cat="entret" data-src="imagenes/placeholder.svg" data-title="Muro TV LED · Minimalista"><img src="imagenes/placeholder.svg" alt="Muro TV LED"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Muro TV LED</div><div class="pi-c">Centros de Entretenimiento</div></div></div>
+    <div class="pi" data-cat="taller" data-src="imagenes/placeholder.svg" data-title="Fabricación · Cajones"><img src="imagenes/placeholder.svg" alt="Taller fabricación"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Fabricación · Cajones</div><div class="pi-c">Proceso de Fabricación</div></div></div>
+    <div class="pi" data-cat="taller" data-src="imagenes/placeholder.svg" data-title="Fabricación · Módulo"><img src="imagenes/placeholder.svg" alt="Módulo fabricación"><div class="povl"><div class="pi-exp"><i class="fas fa-expand"></i></div><div class="pi-t sf">Fabricación · Módulo</div><div class="pi-c">Proceso de Fabricación</div></div></div>
+  </div>
+  <div style="text-align:center;margin-top:3rem" data-r>
+    <button class="btn-dk" onclick="openCot()"><span>Inicia tu proyecto</span><i class="fas fa-arrow-right" style="font-size:.6rem"></i></button>
+  </div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-x" onclick="lbClose()"><i class="fas fa-times"></i></button>
+  <button id="lb-p" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button id="lb-n" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-cap"></div>
+</div>
+
+<!-- PROCESO -->
+<section id="proceso" class="sw" style="background:var(--dk)">
+<div class="cn">
+  <div style="max-width:540px">
+    <div class="ew" style="color:rgba(196,163,90,.8)" data-r>Nuestro método</div>
+    <h2 class="sh2 sf" style="color:#fff;margin-top:1rem" data-r data-d="1">Cómo trabajamos <em>contigo</em></h2>
+    <p class="slead" style="color:rgba(255,255,255,.3);margin-top:.85rem" data-r data-d="2">Proceso transparente de 4 etapas. Tú apruebas antes de que fabricamos.</p>
+  </div>
+  <div class="procg">
+    <div class="pstep" data-r><div class="pstep-bg sf">01</div><div class="pstep-ico"><i class="fas fa-comments"></i></div><h3 class="pstep-t sf">Asesoría</h3><p class="pstep-d">Visitamos tu espacio o te atendemos en sala. Medimos, escuchamos y entendemos tu estilo y presupuesto sin compromiso.</p></div>
+    <div class="pstep" data-r data-d="1"><div class="pstep-bg sf">02</div><div class="pstep-ico"><i class="fas fa-cube"></i></div><h3 class="pstep-t sf">Diseño 3D</h3><p class="pstep-d">Render fotorrealista de tu proyecto. Ves exactamente cómo quedará antes de fabricar. Aprobamos juntos cada detalle.</p></div>
+    <div class="pstep" data-r data-d="2"><div class="pstep-bg sf">03</div><div class="pstep-ico"><i class="fas fa-industry"></i></div><h3 class="pstep-t sf">Fabricación</h3><p class="pstep-d">Tecnología de precisión y melamina certificada. Ensamblamos con herrajes de alta calidad. Control de calidad en cada pieza.</p></div>
+    <div class="pstep" data-r data-d="3"><div class="pstep-bg sf">04</div><div class="pstep-ico"><i class="fas fa-home"></i></div><h3 class="pstep-t sf">Instalación</h3><p class="pstep-d">Instalamos con total cuidado en tu hogar. Entregamos nivelado, afinado y listo para usar. Garantía en materiales y mano de obra.</p></div>
+  </div>
+  <div class="wstrip" data-r>
+    <div class="wi"><img src="imagenes/placeholder.svg" alt="Taller fabricación"><div class="wi-l">Taller de fabricación</div></div>
+    <div class="wi"><img src="imagenes/placeholder.svg" alt="Proceso CNC"><div class="wi-l">Precisión CNC</div></div>
+    <div class="wi"><img src="imagenes/placeholder.svg" alt="Resultado final"><div class="wi-l">Resultado final</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sw" style="background:var(--dk)">
+<div class="cn">
+  <div class="cg">
+    <div>
+      <div class="ew" style="color:rgba(196,163,90,.8)" data-r>Hablemos</div>
+      <h2 class="ch2 sf" data-r data-d="1">Inicia tu<br><em>proyecto hoy</em></h2>
+      <div style="width:2.5rem;height:1px;background:rgba(196,163,90,.35);margin:1.75rem 0" data-r data-d="2"></div>
+      <p class="slead" style="color:rgba(255,255,255,.3);max-width:280px" data-r data-d="2">Estamos en Hermosillo, Sonora. Contáctanos y recibe tu cotización sin costo.</p>
+      <div style="margin-top:2rem" data-r data-d="3">
+        <div class="ci"><div class="cico"><i class="fas fa-phone"></i></div><div><div class="clbl">WhatsApp / Teléfono</div><div class="cval">662 462 1370</div></div></div>
+        <div class="ci"><div class="cico"><i class="fas fa-envelope"></i></div><div><div class="clbl">Correo</div><div class="cval">contacto@elevaensamble.com</div></div></div>
+        <div class="ci"><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div><div class="clbl">Ubicación</div><div class="cval">Eleva Ensamble · Hermosillo, Sonora</div><a class="mapbtn" href="https://www.google.com.mx/maps/place/Eleva+Ensamble/@29.1110196,-111.0145762,14z/data=!4m6!3m5!1s0x86ce8534cb3cfa05:0x10e95a44d60e96a2!8m2!3d29.1110602!4d-111.0054536!16s%2Fg%2F11t2shzpz3?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marked-alt"></i> Ver en Google Maps</a></div></div>
+        <div class="ci"><div class="cico"><i class="fas fa-clock"></i></div><div><div class="clbl">Horario</div><div class="cval">Lun–Vie 9am–6pm · Sáb 9am–2pm</div></div></div>
+      </div>
+      <div class="csoc" data-r data-d="4">
+        <a href="https://wa.me/526624621370" target="_blank" class="csb"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/elevaensamble" target="_blank" rel="noopener noreferrer" class="csb" aria-label="Facebook de Eleva Ensamble"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/eleva_ensamble?igsh=MTdnNWozcTg4MG9lOA==" target="_blank" rel="noopener noreferrer" class="csb" aria-label="Instagram de Eleva Ensamble"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@elevaensamble" target="_blank" rel="noopener noreferrer" class="csb" aria-label="TikTok de Eleva Ensamble"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="cfw" data-r data-d="2">
+      <p class="cft sf">Cotización <em>rápida</em></p>
+      <form onsubmit="qwa(event)">
+        <div class="crow">
+          <div class="cfg"><label class="clabel">Nombre</label><input id="q-n" type="text" class="cinp" placeholder="Tu nombre" required></div>
+          <div class="cfg"><label class="clabel">WhatsApp</label><input id="q-t" type="tel" class="cinp" placeholder="662 000 0000" required></div>
+        </div>
+        <div class="cfg"><label class="clabel">Correo</label><input id="q-e" type="email" class="cinp" placeholder="tu@email.com"></div>
+        <div class="cfg">
+          <label class="clabel">Servicio</label>
+          <select id="q-s" class="cinp" required>
+            <option value="" disabled selected>Selecciona</option>
+            <option>Cocina Integral</option><option>Closet a Medida</option>
+            <option>Centro de Entretenimiento</option><option>Mueble de Baño</option><option>Otro</option>
+          </select>
+        </div>
+        <div class="cfg"><label class="clabel">Mensaje</label><textarea id="q-m" class="cinp" placeholder="Describe tu proyecto..."></textarea></div>
+        <button type="submit" class="csend"><i class="fab fa-whatsapp" style="margin-right:.4rem"></i>Enviar por WhatsApp</button>
+      </form>
+      <span class="calt" onclick="openCot()">→ Completar cuestionario detallado</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="flogo sf">Eleva <em>Ensamble</em></div>
+    <p class="fcopy">© 2025 Eleva Ensamble · Hermosillo, Sonora · Todos los derechos reservados</p>
+    <div class="flinks">
+      <span class="flink" onclick="go('nosotros')">Nosotros</span>
+      <span class="flink" onclick="go('servicios')">Servicios</span>
+      <span class="flink" onclick="go('portafolio')">Proyectos</span>
+      <span class="flink" onclick="go('contacto')">Contacto</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<div id="waf">
+  <span id="wal">¡Cotiza gratis!</span>
+  <a href="https://wa.me/526624621370?text=Hola%20Eleva%20Ensamble%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto" target="_blank" id="wab"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- COTIZADOR MODAL -->
+<div id="cotm">
+<div class="cbox">
+  <div class="chead">
+    <div class="chead-brand"><img src="imagenes/logo-eleva.jpg" alt="Eleva Ensamble"><div class="chead-title sf">Cuestionario de Proyecto</div></div>
+    <button class="chead-x" onclick="closeCot()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cprog"><div class="cprog-fill" id="cpf"></div></div>
+  <div class="cpills" id="cpills"></div>
+  <div class="cstep-lbl" id="cslbl">Paso 1 de 9</div>
+  <div class="cbody">
+
+    <!-- PASO 1: Datos -->
+    <div class="cstep act" id="cs0">
+      <h3 class="cstep-title sf">Tus datos de contacto</h3>
+      <p class="cstep-sub">Para preparar tu cotización personalizada.</p>
+      <div class="crow2">
+        <div class="cfg2"><label class="clbl2">Nombre completo *</label><input id="d-n" type="text" class="cinp2" placeholder="Tu nombre"></div>
+        <div class="cfg2"><label class="clbl2">WhatsApp *</label><input id="d-w" type="tel" class="cinp2" placeholder="662 000 0000"></div>
+      </div>
+      <div class="cfg2"><label class="clbl2">Correo electrónico</label><input id="d-e" type="email" class="cinp2" placeholder="tu@email.com"></div>
+      <div class="cfg2"><label class="clbl2">Colonia / Dirección</label><input id="d-d" type="text" class="cinp2" placeholder="Ej. Colonia Pitic, Hermosillo"></div>
+      <div class="cnav"><span></span><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 2: Tipo proyecto -->
+    <div class="cstep" id="cs1">
+      <h3 class="cstep-title sf">Tipo de proyecto</h3>
+      <p class="cstep-sub">¿Qué mueble necesitas? Puedes seleccionar más de uno.</p>
+      <div class="optg">
+        <div class="oc" data-v="Cocina Integral" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-utensils"></i></div><div class="oc-lbl">Cocina Integral</div></div>
+        <div class="oc" data-v="Closet / Vestidor" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-tshirt"></i></div><div class="oc-lbl">Closet / Vestidor</div></div>
+        <div class="oc" data-v="Centro de Entretenimiento" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-tv"></i></div><div class="oc-lbl">Entretenimiento</div></div>
+        <div class="oc" data-v="Mueble de Baño" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-bath"></i></div><div class="oc-lbl">Mueble de Baño</div></div>
+        <div class="oc" data-v="Librero / Estantería" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-book-open"></i></div><div class="oc-lbl">Librero</div></div>
+        <div class="oc" data-v="Otro" onclick="tproj(this)"><div class="oc-ico"><i class="fas fa-pencil-ruler"></i></div><div class="oc-lbl">Otro</div></div>
+      </div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 3: Configuración -->
+    <div class="cstep" id="cs2">
+      <h3 class="cstep-title sf">Configuración del proyecto</h3>
+      <p class="cstep-sub">Detalla el tipo específico de cada mueble seleccionado.</p>
+      <div class="subp" id="sp-c"><div class="subp-t">Distribución de la cocina</div><div class="subg">
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Recta (lineal)</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> En L (escuadra)</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> En U</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Con isla central</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Con barra de desayuno</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Dos paredes paralelas</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Abierta al comedor</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> No estoy seguro/a</div>
+      </div></div>
+      <div class="subp" id="sp-cl"><div class="subp-t">Tipo de closet</div><div class="subg">
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Walk-in / Vestidor</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Lineal empotrado</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> En L</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Puertas corredizas</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Puertas abatibles</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Puertas espejo</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Sin puertas</div>
+      </div></div>
+      <div class="subp" id="sp-e"><div class="subp-t">Tipo de entretenimiento</div><div class="subg">
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Muro TV empotrado</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Con chimenea eléctrica</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Con listones de madera</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Librero integrado</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Mueble flotante</div>
+      </div></div>
+      <div class="subp" id="sp-b"><div class="subp-t">Tipo de mueble de baño</div><div class="subg">
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Vanity flotante</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Vanity con patas</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Gabinete sobre espejo</div>
+        <div class="so" onclick="tso(this)"><i class="fas fa-check"></i> Baño completo</div>
+      </div></div>
+      <div class="cfg2" style="margin-top:.75rem"><label class="clbl2">Medidas aproximadas (opcional)</label><input id="d-med" type="text" class="cinp2" placeholder="Ej. 3.5m ancho × 2.4m alto"></div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 4: Estilo -->
+    <div class="cstep" id="cs3">
+      <h3 class="cstep-title sf">Estilo deseado</h3>
+      <p class="cstep-sub">¿Qué estética refleja mejor tu personalidad?</p>
+      <div class="optg" style="grid-template-columns:repeat(auto-fill,minmax(120px,1fr))">
+        <div class="oc" data-v="Contemporáneo" onclick="s1(this,'estilo')"><div class="oc-ico"><i class="fas fa-building"></i></div><div class="oc-lbl">Contemporáneo</div><div class="oc-sub">Actual y dinámico</div></div>
+        <div class="oc" data-v="Moderno" onclick="s1(this,'estilo')"><div class="oc-ico"><i class="fas fa-border-all"></i></div><div class="oc-lbl">Moderno</div><div class="oc-sub">Líneas limpias</div></div>
+        <div class="oc" data-v="Industrial" onclick="s1(this,'estilo')"><div class="oc-ico"><i class="fas fa-industry"></i></div><div class="oc-lbl">Industrial</div><div class="oc-sub">Metal y madera</div></div>
+        <div class="oc" data-v="Clásico" onclick="s1(this,'estilo')"><div class="oc-ico"><i class="fas fa-landmark"></i></div><div class="oc-lbl">Clásico</div><div class="oc-sub">Elegancia atemporal</div></div>
+        <div class="oc" data-v="Me asesoran" onclick="s1(this,'estilo')"><div class="oc-ico"><i class="fas fa-comments"></i></div><div class="oc-lbl">Me asesoran</div><div class="oc-sub">¡Los guío!</div></div>
+      </div>
+      <p class="chk-t" style="margin-top:1.4rem">Paleta de colores preferida</p>
+      <div class="colg">
+        <div class="colc" data-v="Cremas y beiges" onclick="s1(this,'color')"><div class="csw" style="background:#F5F0E8"></div><div class="cswl">Cremas</div></div>
+        <div class="colc" data-v="Blancos puros" onclick="s1(this,'color')"><div class="csw" style="background:#fff;border:1px solid #ddd"></div><div class="cswl">Blancos</div></div>
+        <div class="colc" data-v="Madera y cafés" onclick="s1(this,'color')"><div class="csw" style="background:#8A7060"></div><div class="cswl">Madera</div></div>
+        <div class="colc" data-v="Grises" onclick="s1(this,'color')"><div class="csw" style="background:#4A4A4A"></div><div class="cswl">Grises</div></div>
+        <div class="colc" data-v="Negros" onclick="s1(this,'color')"><div class="csw" style="background:#111"></div><div class="cswl">Negros</div></div>
+        <div class="colc" data-v="Bicolor" onclick="s1(this,'color')"><div class="csw" style="background:linear-gradient(135deg,#fff 50%,#333 50%)"></div><div class="cswl">Bicolor</div></div>
+        <div class="colc" data-v="Sin preferencia" onclick="s1(this,'color')"><div class="csw" style="background:linear-gradient(135deg,#ccc,#888)"></div><div class="cswl">Sin pref.</div></div>
+      </div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 5: Funcionalidad -->
+    <div class="cstep" id="cs4">
+      <h3 class="cstep-title sf">Funcionalidad y extras</h3>
+      <p class="cstep-sub">Selecciona todo lo que sea importante para ti.</p>
+      <p class="chk-t">Almacenamiento</p>
+      <div class="chkg">
+        <label class="chi"><input type="checkbox" name="func" value="Todo oculto (sin jaladeras visibles)"><label>Todo oculto</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Cajones"><label>Cajones</label></label>
+        <label class="chi" id="pantry-option"><input type="checkbox" name="func" value="Despensa integrada"><label>Despensa integrada</label></label>
+        <label class="chi" id="wine-option"><input type="checkbox" name="func" value="Cava de vinos"><label>Cava de vinos</label></label>
+        <label class="chi" id="bar-option"><input type="checkbox" name="func" value="Zona de bar / tequilero"><label>Zona de bar</label></label>
+        <label class="chi" id="appliances-option"><input type="checkbox" name="func" value="Electrodomésticos ocultos"><label>Electrodomésticos ocultos</label></label>
+        <label class="chi" id="shoe-module-option" style="display:none"><input type="checkbox" name="func" value="Módulo de zapatos"><label>Módulo de zapatos</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Abierto con repisas"><label>Abierto con repisas</label></label>
+      </div>
+      <p class="chk-t" style="margin-top:.9rem">Puertas y acabados</p>
+      <div class="chkg">
+        <label class="chi"><input type="checkbox" name="func" value="Puertas de vidrio"><label>Puertas de vidrio</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Puertas lisas"><label>Puertas lisas</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Push-to-open (sin jaladera)"><label>Push-to-open</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Puertas shaker"><label>Puertas shaker</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Alto brillo"><label>Acabado alto brillo</label></label>
+      </div>
+      <p class="chk-t" style="margin-top:.9rem">Iluminación</p>
+      <div class="chkg">
+        <label class="chi"><input type="checkbox" name="func" value="Luz LED en gabinetes"><label>LED en gabinetes</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="LED ambiental inferior"><label>LED ambiental</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Espejo con luz integrada"><label>Espejo con luz</label></label>
+        <label class="chi"><input type="checkbox" name="func" value="Luz en cajones"><label>Luz en cajones</label></label>
+      </div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 6: Tipo de obra -->
+    <div class="cstep" id="cs5">
+      <h3 class="cstep-title sf">Condición del espacio</h3>
+      <p class="cstep-sub">¿Es un espacio nuevo o remodelación?</p>
+      <div class="optg" style="grid-template-columns:repeat(auto-fill,minmax(145px,1fr))">
+        <div class="oc" data-v="Obra nueva" onclick="s1(this,'obra')"><div class="oc-ico"><i class="fas fa-home"></i></div><div class="oc-lbl">Obra nueva</div><div class="oc-sub">Primera instalación</div></div>
+        <div class="oc" data-v="Remodelación" onclick="s1(this,'obra')"><div class="oc-ico"><i class="fas fa-tools"></i></div><div class="oc-lbl">Remodelación</div><div class="oc-sub">Sustituye mueble</div></div>
+        <div class="oc" data-v="Departamento" onclick="s1(this,'obra')"><div class="oc-ico"><i class="fas fa-building"></i></div><div class="oc-lbl">Departamento</div><div class="oc-sub">Edificio o condo</div></div>
+        <div class="oc" data-v="Local comercial" onclick="s1(this,'obra')"><div class="oc-ico"><i class="fas fa-store"></i></div><div class="oc-lbl">Comercial</div><div class="oc-sub">Negocio o tienda</div></div>
+      </div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 7: Tiempo -->
+    <div class="cstep" id="cs6">
+      <h3 class="cstep-title sf">Tiempo estimado</h3>
+      <p class="cstep-sub">¿Cuándo planeas realizar el proyecto?</p>
+      <div class="optg" style="grid-template-columns:repeat(auto-fill,minmax(145px,1fr))">
+        <div class="oc" data-v="Inmediato" onclick="s1(this,'tiempo')"><div class="oc-ico">⚡</div><div class="oc-lbl">Inmediato</div><div class="oc-sub">Quiero empezar ya</div></div>
+        <div class="oc" data-v="1–2 meses" onclick="s1(this,'tiempo')"><div class="oc-ico">📅</div><div class="oc-lbl">1 – 2 meses</div></div>
+        <div class="oc" data-v="3–4 meses" onclick="s1(this,'tiempo')"><div class="oc-ico">📆</div><div class="oc-lbl">3 – 4 meses</div></div>
+        <div class="oc" data-v="Más de 4 meses" onclick="s1(this,'tiempo')"><div class="oc-ico">🗓️</div><div class="oc-lbl">+4 meses</div><div class="oc-sub">Con anticipación</div></div>
+      </div>
+      <div class="cfg2" style="margin-top:1rem">
+        <label class="clbl2">Comentarios adicionales</label>
+        <textarea id="d-com" class="cinp2" placeholder="Algún detalle especial que quieras compartir..."></textarea>
+      </div>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 8: Presupuesto -->
+    <div class="cstep" id="cs7">
+      <h3 class="cstep-title sf">Inversión estimada</h3>
+      <p class="cstep-sub">Desliza para indicar tu rango de inversión en pesos mexicanos.</p>
+      <div class="rval sf" id="rv">$30,000</div>
+      <input type="range" id="rng" class="rinput" min="10000" max="250000" step="5000" value="30000" oninput="upd(this.value)">
+      <div class="rlabels"><span>$10,000</span><span>$250,000</span></div>
+      <p style="text-align:center;font-size:.77rem;color:var(--stone2);margin-top:.5rem">Precio estimado MXN incluyendo materiales e instalación</p>
+      <div class="cnav"><button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button><button class="cnext" onclick="nxt()">Siguiente <i class="fas fa-arrow-right" style="font-size:.6rem"></i></button></div>
+    </div>
+
+    <!-- PASO 9: Fuente -->
+    <div class="cstep" id="cs8">
+      <h3 class="cstep-title sf">¿Cómo nos encontraste?</h3>
+      <p class="cstep-sub">Ayúdanos a saber cómo llegaste a Eleva Ensamble.</p>
+      <div class="srcg">
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fab fa-instagram"></i> Instagram</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fab fa-facebook-f"></i> Facebook</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fab fa-tiktok"></i> TikTok</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fab fa-google"></i> Google</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fas fa-user-friends"></i> Recomendación</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fas fa-store-alt"></i> Rótulo / Local</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fas fa-bullhorn"></i> Publicidad</div>
+        <div class="srco" onclick="s1(this,'fuente')"><i class="fas fa-ellipsis-h"></i> Otro</div>
+      </div>
+      <div class="cnav">
+        <button class="cprev" onclick="prv()"><i class="fas fa-arrow-left" style="font-size:.6rem"></i> Anterior</button>
+        <button class="cnext send" onclick="send()"><i class="fab fa-whatsapp"></i>&nbsp; Enviar cotización</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script>
+/* ===== LOADER ===== */
+(function(){
+  // JS-driven animated loader — does NOT depend on window.load
+  var bar = document.getElementById('ldr-bar');
+  var ldr = document.getElementById('ldr');
+  var w = 0;
+  var interval = setInterval(function(){
+    w += (w < 70) ? (Math.random()*4+2) : (Math.random()*1.5+0.5);
+    if(w >= 100){
+      w = 100;
+      clearInterval(interval);
+      bar.style.width = '100%';
+      setTimeout(function(){ ldr.classList.add('out'); }, 350);
+    }
+    bar.style.width = w + '%';
+  }, 35);
+  // Safety: hide after 3.5s no matter what
+  setTimeout(function(){ ldr.classList.add('out'); }, 3500);
+})();
+
+/* ===== NAV ===== */
+var nav = document.getElementById('nav');
+function updNav(){
+  var past = window.scrollY > window.innerHeight - 80;
+  nav.classList.toggle('light', past);
+  // Active links
+  var ac='';
+  ['nosotros','servicios','portafolio','proceso','contacto'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 130) ac=id;
+  });
+  document.querySelectorAll('.nlink').forEach(function(l){
+    l.classList.toggle('on', l.getAttribute('onclick') && l.getAttribute('onclick').includes("'"+ac+"'"));
+  });
+}
+window.addEventListener('scroll', updNav, {passive:true});
+
+/* ===== SMOOTH SCROLL ===== */
+function go(id){
+  var el = document.getElementById(id);
+  if(!el) return false;
+  var top = el.getBoundingClientRect().top + window.scrollY - 78;
+  window.scrollTo({top: top, behavior: 'smooth'});
+  return false;
+}
+
+/* ===== MOBILE MENU ===== */
+var ham = document.getElementById('ham');
+var mob = document.getElementById('mob');
+function toggleMob(){
+  var op = mob.classList.toggle('op');
+  ham.classList.toggle('op', op);
+  document.body.style.overflow = op ? 'hidden' : '';
+}
+function closeMob(){
+  mob.classList.remove('op');
+  ham.classList.remove('op');
+  document.body.style.overflow = '';
+}
+
+/* ===== HERO SLIDESHOW ===== */
+var slides = document.querySelectorAll('.hsl');
+var dots = document.querySelectorAll('.hdot');
+var si = 0, st;
+function gsl(n){
+  slides[si].classList.remove('on'); dots[si].classList.remove('on');
+  si = (n + slides.length) % slides.length;
+  slides[si].classList.add('on'); dots[si].classList.add('on');
+}
+st = setInterval(function(){ gsl(si+1); }, 5500);
+dots.forEach(function(d,i){ d.addEventListener('click', function(){ clearInterval(st); gsl(i); st=setInterval(function(){gsl(si+1);},5500); }); });
+
+/* ===== SCROLL REVEAL ===== */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('rv'); });
+}, {threshold: 0.08});
+document.querySelectorAll('[data-r],[data-rl],[data-rr]').forEach(function(el){ ro.observe(el); });
+
+/* ===== PORTFOLIO FILTER ===== */
+document.querySelectorAll('.pfb').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.pfb').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    var f = btn.dataset.f;
+    document.querySelectorAll('.pi').forEach(function(item){
+      item.classList.toggle('hide', f !== 'all' && item.dataset.cat !== f);
+    });
+  });
+});
+
+/* ===== LIGHTBOX ===== */
+var lbItems=[], lbIdx=0;
+function buildLb(){
+  lbItems=[];
+  document.querySelectorAll('.pi:not(.hide)').forEach(function(item){
+    lbItems.push({s:item.dataset.src, t:item.dataset.title});
+  });
+}
+document.querySelectorAll('.pi').forEach(function(item){
+  item.addEventListener('click', function(){
+    buildLb();
+    var s = item.dataset.src;
+    lbIdx = lbItems.findIndex(function(x){ return x.s===s; });
+    lbOpen(lbIdx);
+  });
+});
+function lbOpen(i){
+  if(!lbItems.length) return;
+  lbIdx = (i+lbItems.length) % lbItems.length;
+  document.getElementById('lb-img').src = lbItems[lbIdx].s;
+  document.getElementById('lb-img').alt = lbItems[lbIdx].t;
+  document.getElementById('lb-cap').textContent = lbItems[lbIdx].t;
+  document.getElementById('lb').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function lbClose(){ document.getElementById('lb').classList.remove('op'); document.body.style.overflow=''; }
+function lbNav(d){ lbOpen(lbIdx+d); }
+document.getElementById('lb').addEventListener('click', function(e){ if(e.target===this) lbClose(); });
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lb').classList.contains('op')) return;
+  if(e.key==='Escape') lbClose();
+  if(e.key==='ArrowRight') lbNav(1);
+  if(e.key==='ArrowLeft') lbNav(-1);
+});
+
+/* ===== QUICK FORM ===== */
+function qwa(e){
+  e.preventDefault();
+  var txt='Hola Eleva Ensamble 👋\n\nNombre: '+document.getElementById('q-n').value+'\nTeléfono: '+document.getElementById('q-t').value+'\nServicio: '+document.getElementById('q-s').value+'\n\n'+document.getElementById('q-m').value;
+  window.open('https://wa.me/526624621370?text='+encodeURIComponent(txt),'_blank');
+}
+
+/* ===== COTIZADOR ===== */
+var STEPS=9, cStep=0, cData={}, cProjs=[];
+
+function buildPills(){
+  var bar=document.getElementById('cpills'); bar.innerHTML='';
+  for(var i=0;i<STEPS;i++){
+    var p=document.createElement('div'); p.className='cpill';
+    p.textContent=i+1; bar.appendChild(p);
+  }
+}
+
+function showStep(n){
+  document.querySelectorAll('.cstep').forEach(function(s,i){ s.classList.toggle('act',i===n); });
+  var pills=document.querySelectorAll('.cpill');
+  pills.forEach(function(p,i){ p.classList.remove('act','done'); if(i<n) p.classList.add('done'); if(i===n) p.classList.add('act'); });
+  document.getElementById('cpf').style.width=((n+1)/STEPS*100)+'%';
+  document.getElementById('cslbl').textContent='Paso '+(n+1)+' de '+STEPS;
+  var box=document.querySelector('.cbox'); if(box) box.scrollTop=0;
+}
+
+function openCot(pre){
+  cStep=0; cData={}; cProjs=[];
+  document.querySelectorAll('.oc,.colc,.srco').forEach(function(c){ c.classList.remove('sel'); });
+  document.querySelectorAll('.so').forEach(function(c){ c.classList.remove('sel'); });
+  document.querySelectorAll('.subp').forEach(function(p){ p.classList.remove('show'); });
+  document.querySelectorAll('[name="func"]').forEach(function(c){ c.checked=false; });
+  syncShoeOption();
+  syncFunctionalOptions();
+  document.getElementById('rng').value=30000;
+  document.getElementById('rv').textContent='$30,000';
+  ['d-n','d-w','d-e','d-d','d-med','d-com'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  // Pre-select
+  if(pre){
+    var map={'Cocina Integral':'Cocina Integral','Closet':'Closet / Vestidor','Centro de Entretenimiento':'Centro de Entretenimiento','Mueble de Baño':'Mueble de Baño'};
+    var v=map[pre]||pre;
+    document.querySelectorAll('#cs1 .oc').forEach(function(c){ if(c.dataset.v===v){ c.classList.add('sel'); cProjs.push(v); showSub(v); } });
+    syncShoeOption();
+    syncFunctionalOptions();
+  }
+  buildPills(); showStep(0);
+  document.getElementById('cotm').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function closeCot(){ document.getElementById('cotm').classList.remove('op'); document.body.style.overflow=''; }
+document.getElementById('cotm').addEventListener('click', function(e){ if(e.target===this) closeCot(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&document.getElementById('cotm').classList.contains('op')) closeCot(); });
+
+function nxt(){
+  if(cStep===0){
+    var n=document.getElementById('d-n').value.trim();
+    var w=document.getElementById('d-w').value.trim();
+    if(!n||!w){ alert('Por favor ingresa tu nombre y WhatsApp para continuar.'); return; }
+    cData.nombre=n; cData.wa=w; cData.email=document.getElementById('d-e').value; cData.dir=document.getElementById('d-d').value;
+  }
+  if(cStep===2){ cData.medidas=document.getElementById('d-med').value; }
+  if(cStep===6){ cData.com=document.getElementById('d-com').value; }
+  if(cStep<STEPS-1){ cStep++; showStep(cStep); }
+}
+function prv(){ if(cStep>0){ cStep--; showStep(cStep); } }
+
+function tproj(card){
+  var v=card.dataset.v;
+  card.classList.toggle('sel');
+  if(card.classList.contains('sel')){ if(!cProjs.includes(v)) cProjs.push(v); showSub(v); }
+  else{ cProjs=cProjs.filter(function(x){return x!==v;}); hideSub(v); }
+  syncShoeOption();
+  syncFunctionalOptions();
+}
+function syncShoeOption(){
+  var option=document.getElementById('shoe-module-option');
+  if(!option) return;
+  var show=cProjs.includes('Closet / Vestidor');
+  option.style.display=show?'':'none';
+  if(!show){
+    var input=option.querySelector('input');
+    if(input) input.checked=false;
+  }
+}
+function syncFunctionalOptions(){
+  var isKitchen=cProjs.includes('Cocina Integral');
+  var isCloset=cProjs.includes('Closet / Vestidor');
+  setFunctionalVisibility('appliances-option',!isKitchen&&!isCloset);
+  setFunctionalVisibility('pantry-option',!isCloset);
+  setFunctionalVisibility('wine-option',!isCloset);
+  setFunctionalVisibility('bar-option',!isCloset);
+}
+function setFunctionalVisibility(id,show){
+  var option=document.getElementById(id);
+  if(!option) return;
+  option.style.display=show?'':'none';
+  if(!show){
+    var input=option.querySelector('input');
+    if(input) input.checked=false;
+  }
+}
+function showSub(v){
+  var m={'Cocina Integral':'sp-c','Closet / Vestidor':'sp-cl','Centro de Entretenimiento':'sp-e','Mueble de Baño':'sp-b'};
+  if(m[v]) document.getElementById(m[v]).classList.add('show');
+}
+function hideSub(v){
+  var m={'Cocina Integral':'sp-c','Closet / Vestidor':'sp-cl','Centro de Entretenimiento':'sp-e','Mueble de Baño':'sp-b'};
+  if(m[v]) document.getElementById(m[v]).classList.remove('show');
+}
+function tso(el){ el.classList.toggle('sel'); }
+function s1(card, group){
+  card.parentElement.querySelectorAll('.oc,.colc,.srco').forEach(function(c){ c.classList.remove('sel'); });
+  card.classList.add('sel'); cData[group]=card.dataset.v||card.textContent.trim();
+}
+function upd(val){
+  var n=parseInt(val);
+  document.getElementById('rv').textContent='$'+n.toLocaleString('es-MX');
+  cData.budget=n;
+}
+function send(){
+  var bud=parseInt(document.getElementById('rng').value);
+  var funcs=[]; document.querySelectorAll('[name="func"]:checked').forEach(function(c){funcs.push(c.value);});
+  var subs=[]; document.querySelectorAll('.so.sel').forEach(function(s){subs.push(s.textContent.trim());});
+  var msg='🏠 *COTIZACIÓN — ELEVA ENSAMBLE*\n\n';
+  msg+='👤 *CLIENTE*\n• Nombre: '+(cData.nombre||'—')+'\n• WhatsApp: '+(cData.wa||'—')+'\n';
+  if(cData.email) msg+='• Email: '+cData.email+'\n';
+  if(cData.dir) msg+='• Ubicación: '+cData.dir+'\n';
+  msg+='\n📋 *PROYECTO*\n• Tipo: '+(cProjs.join(', ')||'—')+'\n';
+  if(subs.length) msg+='• Detalle: '+subs.join(', ')+'\n';
+  if(cData.medidas) msg+='• Medidas: '+cData.medidas+'\n';
+  msg+='\n🎨 *ESTILO*\n• Estilo: '+(cData.estilo||'—')+'\n• Paleta: '+(cData.color||'—')+'\n';
+  msg+='\n⚙️ *FUNCIONALIDADES*\n'+(funcs.length?'• '+funcs.join('\n• '):'• No especificadas')+'\n';
+  msg+='\n🏗️ *ESPACIO*\n• '+(cData.obra||'—')+'\n';
+  msg+='\n⏰ *TIEMPO*\n• '+(cData.tiempo||'—')+'\n';
+  if(cData.com) msg+='\n💬 *COMENTARIOS*\n• '+cData.com+'\n';
+  msg+='\n💰 *PRESUPUESTO*\n• $'+bud.toLocaleString('es-MX')+' MXN\n';
+  msg+='\n📍 *FUENTE*\n• '+(cData.fuente||'—')+'\n\n_elevaeensamble.mx_';
+  window.open('https://wa.me/526624621370?text='+encodeURIComponent(msg),'_blank');
+  closeCot();
+}
+</script>
+<script>
+/* Fotografias reales organizadas por la seccion a la que corresponden. */
+(function(){
+  var photo = function(name){
+    return 'imagenes/' + name.split('/').map(encodeURIComponent).join('/');
+  };
+  var setImages = function(selector, names){
+    document.querySelectorAll(selector).forEach(function(img, index){
+      if(names[index]) img.src = photo(names[index]);
+    });
+  };
+
+  var processPrecision = document.querySelector('#proceso .wstrip .wi:nth-child(2)');
+  if(processPrecision){
+    processPrecision.querySelector('img').alt = 'Proceso de precisión';
+    processPrecision.querySelector('.wi-l').textContent = 'Tecnología de precisión';
+  }
+
+  setImages('.hslides img', [
+    'cocina/IMG_20230615_133534.jpg',
+    'cocina/IMG_20230711_174144.jpg.jpeg',
+    'cocina/IMG_20260729_123743.jpg',
+    'cocina/IMG_20250619_151942.jpg'
+  ]);
+
+  setImages('#nosotros .apm img, #nosotros .aps1 img', [
+    'cocina/IMG_20230615_133534.jpg',
+    'taller/IMG_20240920_105109.jpg'
+  ]);
+
+  setImages('#servicios .sc-img img', [
+    'cocina/IMG_20230615_133534.jpg',
+    'closet/IMG_20250408_115955.jpg',
+    'entretenimiento/IMG_20240730_154215.jpg',
+    'bano/IMG_20250528_114651.jpg'
+  ]);
+
+  setImages('#det-c img', [
+    'cocina/IMG_20260717_105807.jpg',
+    'cocina/IMG_20250910_135847.jpg',
+    'cocina/IMG_20260717_110121.jpg',
+    'cocina/IMG_20250729_165041.jpg',
+    'cocina/IMG_20260103_192509.jpg'
+  ]);
+
+  setImages('#det-cl img', [
+    'closet/IMG_20250408_115955.jpg',
+    'closet/IMG_20250408_120037.jpg',
+    'closet/IMG_20250327_153049.jpg'
+  ]);
+
+  setImages('#det-e img', [
+    'entretenimiento/IMG_20250815_124409.jpg',
+    'entretenimiento/IMG_20250228_160247.jpg',
+    'entretenimiento/IMG_20251001_182816.jpg'
+  ]);
+
+  setImages('#det-b img', [
+    'bano/IMG_20240308_101040.jpg',
+    'bano/IMG_20240822_150551.jpg'
+  ]);
+
+  var portfolio = [
+    'cocina/IMG_20230615_133534.jpg',
+    'cocina/IMG_20240214_092731.jpg',
+    'cocina/IMG_20250910_135847.jpg',
+    'cocina/IMG_20250729_165041.jpg',
+    'cocina/IMG_20260103_192509.jpg',
+    'closet/IMG_20250408_115955.jpg',
+    'closet/IMG_20250408_120037.jpg',
+    'closet/IMG_20250327_153049.jpg',
+    'entretenimiento/IMG_20250815_124409.jpg',
+    'entretenimiento/IMG_20251001_182816.jpg',
+    'taller/IMG_20250318_152434.jpg',
+    'taller/IMG_20250320_130519.jpg'
+  ];
+  document.querySelectorAll('#pgrid .pi').forEach(function(card, index){
+    if(!portfolio[index]) return;
+    var src = photo(portfolio[index]);
+    card.dataset.src = src;
+    var img = card.querySelector('img');
+    if(img) img.src = src;
+  });
+
+  setImages('#proceso .wstrip img', [
+    'taller/IMG_20250318_152434.jpg',
+    'taller/IMG_20250319_110224.jpg',
+    'taller/IMG_20260728_144939.jpg'
+  ]);
+})();
+</script>
+</body>
+</html>

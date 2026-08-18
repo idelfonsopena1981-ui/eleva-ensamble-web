@@ -1,0 +1,40 @@
+ELEVA ENSAMBLE - INSTRUCCIONES DE PUBLICACION
+
+Contenido preparado para el dominio:
+https://elevaensamble.com
+
+SUBIDA POR FTP O ADMINISTRADOR DE ARCHIVOS
+
+1. Ingresa al hosting mediante FTP o el Administrador de Archivos.
+2. Abre la carpeta public_html del hosting.
+3. Sube TODO EL CONTENIDO de esta carpeta public_html.
+4. Confirma que index.html quede directamente en la raiz de public_html.
+   La ruta correcta debe ser: public_html/index.html
+5. Confirma que la carpeta imagenes quede junto a index.html.
+   La ruta correcta debe ser: public_html/imagenes/
+6. Abre el dominio en una ventana privada del navegador:
+   https://elevaensamble.com
+7. Revisa la portada, Servicios, Proyectos, Proceso y el cuestionario de cotizacion.
+
+ESTRUCTURA ESPERADA
+
+public_html/
+  index.html
+  imagenes/
+    bano/
+    closet/
+    cocina/
+    entretenimiento/
+    taller/
+    logo-eleva.jpg
+    placeholder.svg
+  robots.txt
+  sitemap.xml
+  INSTRUCCIONES_PUBLICACION.txt
+
+IMPORTANTE
+
+- No subas la carpeta public_html dentro de otra carpeta public_html.
+- No cambies los nombres de index.html ni de la carpeta imagenes.
+- Si el hosting ya contiene una pagina anterior, haz un respaldo antes de reemplazarla.
+- Si no ves los cambios despues de subirlos, limpia la cache del navegador y del hosting.
