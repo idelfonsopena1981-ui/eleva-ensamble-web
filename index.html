@@ -1249,9 +1249,45 @@ document.addEventListener('keydown', function(e){
 });
 
 /* ===== QUICK FORM ===== */
+var analyticsOnce={};
+var analyticsRecent={};
+function trackAnalyticsEvent(name,params,key,once){
+  if(typeof window.gtag!=='function') return;
+  var lockKey=key||name;
+  if(once){
+    if(analyticsOnce[lockKey]) return;
+    analyticsOnce[lockKey]=true;
+  }else{
+    var now=Date.now();
+    if(analyticsRecent[lockKey]&&now-analyticsRecent[lockKey]<2000) return;
+    analyticsRecent[lockKey]=now;
+  }
+  var eventParams=Object.assign({page_location:window.location.href},params||{});
+  gtag('event',name,eventParams);
+}
+
+[
+  {selector:'.csoc a[href^="https://wa.me/"]',location:'contacto_redes'},
+  {selector:'#wab',location:'boton_flotante'}
+].forEach(function(item){
+  var button=document.querySelector(item.selector);
+  if(!button) return;
+  button.addEventListener('click',function(){
+    trackAnalyticsEvent('whatsapp_directo',{
+      contact_method:'whatsapp',
+      button_location:item.location
+    },'whatsapp_directo_'+item.location,false);
+  });
+});
+
 function qwa(e){
   e.preventDefault();
   var txt='Hola Eleva Ensamble 👋\n\nNombre: '+document.getElementById('q-n').value+'\nTeléfono: '+document.getElementById('q-t').value+'\nServicio: '+document.getElementById('q-s').value+'\n\n'+document.getElementById('q-m').value;
+  trackAnalyticsEvent('whatsapp_rapido',{
+    contact_method:'whatsapp',
+    quote_type:'rapido',
+    button_location:'cotizacion_rapida'
+  },'whatsapp_rapido_cotizacion_rapida',false);
   window.open('https://wa.me/526624621370?text='+encodeURIComponent(txt),'_blank');
 }
 
@@ -1297,6 +1333,10 @@ function openCot(pre){
   buildPills(); showStep(0);
   document.getElementById('cotm').classList.add('op');
   document.body.style.overflow='hidden';
+  trackAnalyticsEvent('cotizador_inicio',{
+    quote_type:'detallado',
+    button_location:'apertura_cotizador'
+  },'cotizador_inicio',true);
 }
 function closeCot(){ document.getElementById('cotm').classList.remove('op'); document.body.style.overflow=''; }
 document.getElementById('cotm').addEventListener('click', function(e){ if(e.target===this) closeCot(); });
@@ -1386,6 +1426,16 @@ function send(){
   if(cData.com) msg+='\n💬 *COMENTARIOS*\n• '+cData.com+'\n';
   msg+='\n💰 *PRESUPUESTO*\n• $'+bud.toLocaleString('es-MX')+' MXN\n';
   msg+='\n📍 *FUENTE*\n• '+(cData.fuente||'—')+'\n\n_elevaeensamble.mx_';
+  trackAnalyticsEvent('cotizador_completado',{
+    contact_method:'whatsapp',
+    quote_type:'detallado',
+    button_location:'cotizador_paso_9'
+  },'cotizador_completado_cotizador_paso_9',false);
+  trackAnalyticsEvent('whatsapp_cotizador',{
+    contact_method:'whatsapp',
+    quote_type:'detallado',
+    button_location:'cotizador_paso_9'
+  },'whatsapp_cotizador_cotizador_paso_9',false);
   window.open('https://wa.me/526624621370?text='+encodeURIComponent(msg),'_blank');
   closeCot();
 }
